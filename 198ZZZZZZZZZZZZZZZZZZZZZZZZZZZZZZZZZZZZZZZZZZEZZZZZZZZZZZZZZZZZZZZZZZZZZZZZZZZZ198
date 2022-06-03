@@ -1,0 +1,266 @@
+-- Gui to Lua
+-- Version: 3.2
+
+
+    local plr = game:GetService("Players").LocalPlayer
+if plr:IsInGroup("12871140") then
+local ScreenGui = Instance.new("ScreenGui")
+local StackFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TargetName = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local StackOn = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local StackOff = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local SnowBallsCap = Instance.new("TextBox")
+local UICorner_5 = Instance.new("UICorner")
+local Rejoin = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local GuiName = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local InfY = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local OpenClose = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+StackFrame.Name = "StackFrame"
+StackFrame.Parent = ScreenGui
+StackFrame.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+StackFrame.Position = UDim2.new(0.0424739197, 0, 0.376687109, 0)
+StackFrame.Size = UDim2.new(0, 420, 0, 456)
+StackFrame.Visible = false
+
+UICorner.Parent = StackFrame
+
+TargetName.Name = "TargetName"
+TargetName.Parent = StackFrame
+TargetName.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+TargetName.Position = UDim2.new(0.261904776, 0, 0.164473683, 0)
+TargetName.Size = UDim2.new(0, 200, 0, 50)
+TargetName.Font = Enum.Font.SourceSans
+TargetName.Text = "Target"
+TargetName.TextColor3 = Color3.fromRGB(0, 0, 0)
+TargetName.TextSize = 40.000
+
+UICorner_2.Parent = TargetName
+
+StackOn.Name = "Stack On"
+StackOn.Parent = StackFrame
+StackOn.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+StackOn.Position = UDim2.new(0.0761904791, 0, 0.467105269, 0)
+StackOn.Size = UDim2.new(0, 160, 0, 50)
+StackOn.Font = Enum.Font.SourceSans
+StackOn.Text = "On"
+StackOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+StackOn.TextSize = 40.000
+
+
+StackOn.MouseButton1Click:Connect(function()
+
+shared.io = game:GetService('RunService').RenderStepped:Connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 70, 0)
+    for i,v in pairs(game.Players:GetPlayers()) do
+    pcall(function()
+for i, v in ipairs (game:GetService("Workspace").Storage:GetChildren()) do
+    if v.ClassName == "Part" then
+local num = #game:GetService("Workspace").Storage:GetChildren()
+if num >= SnowBallsCap.Text+0 and num <= 10 then
+    local BUSCO2 = game.Players[TargetName.Text].Character:FindFirstChildOfClass("ForceField")
+if BUSCO2 then
+    return
+    end
+local BUSCO3 = game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField")
+if BUSCO3 then
+                                game.Players.LocalPlayer.Character:FindFirstChild("ForceField"):Destroy()
+    return
+end
+for i, v in pairs(game:GetService("Workspace").Storage:GetDescendants()) do
+if v:FindFirstChild("TouchInterest") then
+firetouchinterest(v, game.Players[TargetName.Text].Character.Head, 0)
+if
+                        game.Players.LocalPlayer.Character.Humanoid.Health <
+                            game.Players.LocalPlayer.Character.Humanoid.MaxHealth * 0.99999999999999999
+                     then
+                     game.Players.LocalPlayer.Character:remove()
+                     wait(0.6)
+                     game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
+     game.Lighting.Blur.Enabled = false
+                    game.Players.LocalPlayer.PlayerGui.IntroGui.Enabled = false
+                    game.Players.LocalPlayer.PlayerGui.ScreenGui.Enabled = true
+end
+end
+end
+end
+end
+end
+end
+)
+end
+end)
+end)
+
+UICorner_3.Parent = StackOn
+
+StackOff.Name = "Rejoin"
+StackOff.Parent = StackFrame
+StackOff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+StackOff.Position = UDim2.new(0.542857111, 0, 0.467105269, 0)
+StackOff.Size = UDim2.new(0, 160, 0, 50)
+StackOff.Font = Enum.Font.SourceSans
+StackOff.Text = "Off"
+StackOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+StackOff.TextSize = 40.000
+
+
+StackOff.MouseButton1Click:Connect(function()
+
+
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+UICorner_4.Parent = StackOff
+
+SnowBallsCap.Name = "SnowBallsCap"
+SnowBallsCap.Parent = StackFrame
+SnowBallsCap.BackgroundColor3 = Color3.fromRGB(85, 170, 127)
+SnowBallsCap.Position = UDim2.new(0.261904776, 0, 0.328947365, 0)
+SnowBallsCap.Size = UDim2.new(0, 200, 0, 50)
+SnowBallsCap.Font = Enum.Font.SourceSans
+SnowBallsCap.Text = "Snowballs"
+SnowBallsCap.TextColor3 = Color3.fromRGB(0, 0, 0)
+SnowBallsCap.TextSize = 40.000
+
+UICorner_5.Parent = SnowBallsCap
+
+Rejoin.Name = "Fix"
+Rejoin.Parent = StackFrame
+Rejoin.BackgroundColor3 = Color3.fromRGB(255, 255, 127)
+Rejoin.Position = UDim2.new(0.0761904791, 0, 0.730263174, 0)
+Rejoin.Size = UDim2.new(0, 160, 0, 50)
+Rejoin.Font = Enum.Font.SourceSans
+Rejoin.Text = "Fix"
+Rejoin.TextColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.TextSize = 40.000
+
+Rejoin.MouseButton1Click:Connect(function()
+
+    shared.io = game:GetService('RunService').RenderStepped:Connect(function()
+for i, v in ipairs(game:GetService("Workspace").Storage:GetChildren()) do
+    if v.ClassName == "Part" and isnetworkowner(v) == false then
+        v:Destroy()
+    end
+end
+end)
+end)
+
+UICorner_6.Parent = Rejoin
+
+GuiName.Name = "GuiName"
+GuiName.Parent = StackFrame
+GuiName.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+GuiName.Position = UDim2.new(0.261904776, 0, 0.0131578948, 0)
+GuiName.Size = UDim2.new(0, 200, 0, 50)
+GuiName.Font = Enum.Font.SourceSans
+GuiName.Text = "Mestalic Stacker"
+GuiName.TextColor3 = Color3.fromRGB(0, 0, 0)
+GuiName.TextSize = 34.000
+
+UICorner_7.Parent = GuiName
+
+InfY.Name = "InfY"
+InfY.Parent = StackFrame
+InfY.BackgroundColor3 = Color3.fromRGB(255, 85, 127)
+InfY.Position = UDim2.new(0.54285717, 0, 0.730263174, 0)
+InfY.Size = UDim2.new(0, 160, 0, 50)
+InfY.Font = Enum.Font.SourceSans
+InfY.Text = "InfY"
+InfY.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfY.TextSize = 40.000
+
+UICorner_8.Parent = InfY
+
+OpenClose.Name = "OpenClose"
+OpenClose.Parent = ScreenGui
+OpenClose.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+OpenClose.Position = UDim2.new(0.850968719, 0, 0.444533408, 0)
+OpenClose.Size = UDim2.new(0, 200, 0, 50)
+OpenClose.Font = Enum.Font.RobotoCondensed
+OpenClose.Text = "Open/Close"
+OpenClose.TextColor3 = Color3.fromRGB(0, 0, 0)
+OpenClose.TextSize = 40.000
+
+UICorner_9.Parent = OpenClose
+
+-- Scripts:
+
+local function OMIUWY_fake_script() -- StackFrame.Drag 
+	local script = Instance.new('LocalScript', StackFrame)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(OMIUWY_fake_script)()
+local function OLOOWC_fake_script() -- OpenClose.LocalScript 
+	local script = Instance.new('LocalScript', OpenClose)
+
+	local frame = script.Parent.Parent.StackFrame-- change “Test” to the name of the frane
+	local open = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if frame.Visible == false then
+			frame.Visible = true
+		else
+			frame.Visible = false
+		end
+	end)
+	
+end
+coroutine.wrap(OLOOWC_fake_script)()
+else
+    game:shutdown()
+end
